@@ -18,11 +18,14 @@ import com.smartcampus.service.Auth.CustomOAuth2UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.beans.factory.annotation.Value;
 
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfig {
+    @Value("${app.security.oauth2.enabled:false}")
+    private boolean oauth2Enabled;
 
     @Autowired
     private CustomUserDetailsService userDetailsService;
@@ -59,11 +62,14 @@ public class SecurityConfig {
                         .deleteCookies("JSESSIONID")
                         .logoutSuccessHandler((request, response, authentication) -> response.setStatus(200))
                         .permitAll())
-                .httpBasic(org.springframework.security.config.Customizer.withDefaults())
-                .oauth2Login(oauth2 -> oauth2
-                        .userInfoEndpoint(userInfo -> userInfo.userService(oauth2UserService))
-                        .defaultSuccessUrl("http://localhost:5173", true) // Redirect to frontend after success
-                );
+                .httpBasic(org.springframework.security.config.Customizer.withDefaults());
+
+        if (oauth2Enabled) {
+            http.oauth2Login(oauth2 -> oauth2
+                    .userInfoEndpoint(userInfo -> userInfo.userService(oauth2UserService))
+                    .defaultSuccessUrl("http://localhost:5173", true) // Redirect to frontend after success
+            );
+        }
 
         return http.build();
     }
