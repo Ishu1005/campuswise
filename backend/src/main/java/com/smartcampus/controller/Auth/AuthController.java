@@ -21,6 +21,7 @@ import com.smartcampus.dto.Auth.AdminUpdateUserRequest;
 import com.smartcampus.dto.Auth.UpdateProfileRequest;
 import com.smartcampus.model.Auth.User;
 import com.smartcampus.repository.Auth.UserRepository;
+import com.smartcampus.service.Auth.UserMongoSyncService;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
@@ -39,6 +40,9 @@ public class AuthController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private UserMongoSyncService userMongoSyncService;
+
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@RequestBody SignupRequest request) {
         Optional<User> existingUser = userRepository.findByEmail(request.getEmail());
@@ -56,7 +60,8 @@ public class AuthController {
             user.setPictureUrl(request.getPictureUrl());
         }
 
-        userRepository.save(user);
+        User savedUser = userRepository.save(user);
+        userMongoSyncService.upsert(savedUser);
 
         return ResponseEntity.ok("User registered successfully!");
     }
@@ -86,7 +91,8 @@ public class AuthController {
             user.setPictureUrl(request.getPictureUrl());
         }
 
-        userRepository.save(user);
+        User savedUser = userRepository.save(user);
+        userMongoSyncService.upsert(savedUser);
 
         return ResponseEntity.ok("User created successfully by admin!");
     }
@@ -148,8 +154,9 @@ public class AuthController {
             target.setPassword(passwordEncoder.encode(request.getPassword()));
         }
 
-        userRepository.save(target);
-        return ResponseEntity.ok(toAdminUserResponse(target));
+        User savedUser = userRepository.save(target);
+        userMongoSyncService.upsert(savedUser);
+        return ResponseEntity.ok(toAdminUserResponse(savedUser));
     }
 
     @DeleteMapping("/admin/users/{id}")
@@ -170,6 +177,7 @@ public class AuthController {
         }
 
         userRepository.deleteById(id);
+        userMongoSyncService.deleteBySqlUserId(id);
         return ResponseEntity.ok("User deleted successfully.");
     }
 
@@ -225,14 +233,15 @@ public class AuthController {
                         ? null
                         : request.getPictureUrl().trim());
 
-        userRepository.save(user);
+        User savedUser = userRepository.save(user);
+        userMongoSyncService.upsert(savedUser);
 
         return ResponseEntity.ok(new LoginResponse(
-                user.getId(),
-                user.getName(),
-                user.getEmail(),
-                user.getRole(),
-                user.getPictureUrl()));
+                savedUser.getId(),
+                savedUser.getName(),
+                savedUser.getEmail(),
+                savedUser.getRole(),
+                savedUser.getPictureUrl()));
     }
 
     private String resolveEmail(Authentication authentication) {

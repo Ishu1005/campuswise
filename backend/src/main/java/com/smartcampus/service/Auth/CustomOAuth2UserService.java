@@ -24,6 +24,9 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private UserMongoSyncService userMongoSyncService;
+
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
         OAuth2User oAuth2User = super.loadUser(userRequest);
@@ -45,6 +48,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
             // not used for login
             newUser.setPassword(UUID.randomUUID().toString());
             persistedUser = userRepository.save(newUser);
+            userMongoSyncService.upsert(persistedUser);
         } else {
             // Update existing user if name or picture changed
             User user = userOpt.get();
@@ -59,6 +63,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
             }
             if (updated) {
                 persistedUser = userRepository.save(Objects.requireNonNull(user, "Persisted user cannot be null"));
+                userMongoSyncService.upsert(persistedUser);
             } else {
                 persistedUser = user;
             }

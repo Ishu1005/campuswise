@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.smartcampus.model.Auth.User;
 import com.smartcampus.repository.Auth.UserRepository;
+import com.smartcampus.service.Auth.UserMongoSyncService;
 
 @RestController
 @RequestMapping("/api/admin/users")
@@ -23,6 +24,9 @@ public class UserAdminController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private UserMongoSyncService userMongoSyncService;
 
     @GetMapping
     public List<User> getAllUsers() {
@@ -40,9 +44,10 @@ public class UserAdminController {
         // Remove quotes if present from raw string body
         String role = newRole.replace("\"", "");
         user.setRole(role);
-        userRepository.save(user);
+        User savedUser = userRepository.save(user);
+        userMongoSyncService.upsert(savedUser);
 
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(savedUser);
     }
 
     @DeleteMapping("/{id}")
@@ -51,6 +56,7 @@ public class UserAdminController {
             return ResponseEntity.notFound().build();
         }
         userRepository.deleteById(id);
+        userMongoSyncService.deleteBySqlUserId(id);
         return ResponseEntity.ok("User deleted successfully");
     }
 }
