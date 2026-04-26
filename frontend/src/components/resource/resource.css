@@ -1,24 +1,24 @@
 :root {
-  /* Grey, modern admin theme */
-  --bg-body: #cfd1d6;
-  --bg-rail: #111317;
-  --bg-rail-muted: #181b20;
-  --bg-panel: #d6d8de;
-  --bg-panel-soft: #e8eaef;
-  --bg-content: #d9dce3;
+  /* Low-light purple theme */
+  --bg-body: #e7e1f3;
+  --bg-rail: #2b1f46;
+  --bg-rail-muted: #342655;
+  --bg-panel: #eee6fa;
+  --bg-panel-soft: #f4eefc;
+  --bg-content: #e7def4;
   --border-subtle: rgba(15, 23, 42, 0.1);
   --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.18);
   --shadow-rail: 0 10px 30px rgba(0, 0, 0, 0.5);
-  --accent: #4f8cff;
-  --accent-soft: rgba(79, 140, 255, 0.16);
-  --text-main: #111827;
-  --text-muted: #6b7280;
+  --accent: #7a60b8;
+  --accent-soft: rgba(122, 96, 184, 0.16);
+  --text-main: #241a3d;
+  --text-muted: #6f6592;
 }
 
 .appShell {
   display: flex;
   min-height: 100vh;
-  background: linear-gradient(165deg, #d8dadf 0%, #cbcfd6 52%, #bdc2cb 100%);
+  background: linear-gradient(165deg, #f1ebfb 0%, #e5dcf4 52%, #d8cdeb 100%);
   color: var(--text-main);
 }
 
@@ -51,7 +51,7 @@
 
 .sideNav {
   width: 74px;
-  background: linear-gradient(180deg, #c8cdd6 0%, #bcc3ce 100%);
+  background: linear-gradient(180deg, #d9ceef 0%, #ccbde7 100%);
   color: var(--text-main);
   padding: 16px 12px;
   display: flex;
@@ -100,8 +100,8 @@
   align-items: center;
   padding: 11px 12px;
   border-radius: 16px;
-  background: linear-gradient(145deg, #d8dde6 0, #c7cfdb 62%, #bcc5d1 100%);
-  border: 1px solid rgba(71, 85, 105, 0.45);
+  background: linear-gradient(145deg, #e7def6 0, #d9cdee 62%, #cec0e8 100%);
+  border: 1px solid rgba(93, 72, 140, 0.45);
   box-shadow: 0 8px 20px rgba(15, 23, 42, 0.16);
 }
 
@@ -123,7 +123,7 @@
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background: linear-gradient(145deg, #374151, #111827);
+  background: linear-gradient(145deg, #5a428f, #2b1f46);
   border: 2px solid rgba(255, 255, 255, 0.75);
   box-shadow: 0 4px 14px rgba(15, 23, 42, 0.22);
   overflow: hidden;
@@ -205,9 +205,9 @@
 }
 
 .sideNavItem.active {
-  background: linear-gradient(180deg, #cfd6e1 0, #c0c9d6 100%);
-  border: 1px solid rgba(71, 85, 105, 0.42);
-  box-shadow: 0 8px 16px rgba(71, 85, 105, 0.24);
+  background: linear-gradient(180deg, #e6dcf8 0, #d6c8ef 100%);
+  border: 1px solid rgba(93, 72, 140, 0.42);
+  box-shadow: 0 8px 16px rgba(93, 72, 140, 0.24);
 }
 
 .sideNavIcon {
@@ -284,7 +284,7 @@
   padding: 12px;
   border-radius: 12px;
   border: 1px solid rgba(148, 163, 184, 0.6);
-  background: linear-gradient(135deg, #111827, #020617);
+  background: linear-gradient(135deg, #5f4696, #2b1f46);
   color: #f9fafb;
   font-weight: 600;
   font-size: 14px;
@@ -315,8 +315,8 @@
 
 .logout button:hover,
 .sideLogout:hover {
-  background: linear-gradient(135deg, #020617, #0b1120);
-  border-color: rgba(148, 163, 184, 0.8);
+  background: linear-gradient(135deg, #4d387f, #241b3d);
+  border-color: rgba(166, 145, 212, 0.9);
   transform: translateY(-1px);
 }
 
@@ -330,7 +330,7 @@
   flex: 1;
   padding: 26px 32px;
   min-width: 0;
-  background: linear-gradient(180deg, #d9dce3 0, #ced3dc 100%);
+  background: linear-gradient(180deg, #ece4f8 0, #e2d7f3 100%);
 }
 
 .contentInner {
@@ -352,7 +352,7 @@
 }
 
 .card {
-  background: #e3e6ec;
+  background: #f3edfb;
   border: 1px solid rgba(148, 163, 184, 0.34);
   border-radius: 18px;
   box-shadow: 0 20px 48px rgba(15, 23, 42, 0.16);

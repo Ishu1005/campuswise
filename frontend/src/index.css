@@ -1,14 +1,14 @@
 :root{
-  --bg: #ccd0d7;
-  --panel: #e3e6ec;
-  --panel-soft: #d9dde5;
-  --sidebar: #111317;
-  --sidebar2: #05070a;
-  --text: #111827;
-  --muted: #6b7280;
-  --border: #d4d9e1;
-  --accent: #5b6474;
-  --accent-soft: #e9edf3;
+  --bg: #e7e2f4;
+  --panel: #f2ecfb;
+  --panel-soft: #e8e0f4;
+  --sidebar: #2b1f46;
+  --sidebar2: #1e1733;
+  --text: #241a3d;
+  --muted: #6f6592;
+  --border: #d4c8ea;
+  --accent: #7a60b8;
+  --accent-soft: #ede6fb;
   --danger: #b42318;
   --success: #027a48;
 }
@@ -22,7 +22,7 @@ html, body, #root {
 body{
   margin:0;
   font-family: "Inter", "Segoe UI", system-ui, Arial, sans-serif;
-  background: linear-gradient(160deg, #d8dadf 0%, #cbcfd6 52%, #bdc2cb 100%);
+  background: linear-gradient(160deg, #f1ebfb 0%, #e5dcf4 52%, #d8cdeb 100%);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -34,13 +34,13 @@ button{
   cursor:pointer;
   border-radius: 12px;
   border: 1px solid var(--border);
-  background: linear-gradient(180deg, #ffffff, #f5f7fa);
+  background: linear-gradient(180deg, #ffffff, #f4eefc);
   color: var(--text);
   transition: all 0.2s ease;
 }
 
 button:hover{
-  border-color: #b9c0cc;
+  border-color: #b9a8de;
 }
 
 input, select, textarea{
@@ -55,6 +55,6 @@ input, select, textarea{
 }
 
 input:focus, select:focus, textarea:focus{
-  border-color: #a5afbf;
-  box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.18);
+  border-color: #8b72c2;
+  box-shadow: 0 0 0 3px rgba(122, 96, 184, 0.2);
 }

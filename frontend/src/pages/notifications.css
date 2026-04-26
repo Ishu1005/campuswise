@@ -10,7 +10,7 @@
 }
 
 .notificationsPrefsCard {
-  background: linear-gradient(180deg, #eef1f6 0%, #e5e9f0 100%);
+  background: linear-gradient(180deg, #f1ebfb 0%, #e7ddf5 100%);
   border: 1px solid rgba(148, 163, 184, 0.36);
   border-radius: 14px;
   padding: 14px;
@@ -90,7 +90,7 @@
 }
 
 .notificationsSwitch input:checked + .notificationsSwitchSlider {
-  background: #2563eb;
+  background: #7a60b8;
 }
 
 .notificationsSwitch input:checked + .notificationsSwitchSlider::after {
@@ -137,8 +137,8 @@
 }
 
 .notificationsItem.isUnread {
-  border-color: #bfdbfe;
-  background: linear-gradient(180deg, #eff6ff 0%, #f8fbff 100%);
+  border-color: #d3c1ef;
+  background: linear-gradient(180deg, #f4effc 0%, #fbf8ff 100%);
 }
 
 .notificationsItem.isRead {
