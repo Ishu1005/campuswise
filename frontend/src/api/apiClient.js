@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const DEFAULT_API_BASE_URL = "http://localhost:8085/api";
+const DEFAULT_API_BASE_URL = "http://localhost:8080/api";
 
 function resolveApiBaseUrl() {
   const rawValue = import.meta.env.VITE_API_BASE_URL?.trim();
