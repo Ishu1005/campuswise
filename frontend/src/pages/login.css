@@ -5,7 +5,7 @@
   padding: 24px;
   background:
     radial-gradient(1200px 360px at 50% 110%, rgba(255, 255, 255, 0.28), transparent 70%),
-    linear-gradient(180deg, var(--bg) 0%, #c7ccd6 100%);
+    linear-gradient(180deg, var(--bg) 0%, #ddd2ef 100%);
 }
 
 .loginCard {
@@ -186,8 +186,8 @@
 .loginPrimaryBtn {
   margin-top: 4px;
   width: 100%;
-  border: 1px solid rgba(17, 24, 39, 0.8);
-  background: linear-gradient(180deg, #1f2937, #020617);
+  border: 1px solid rgba(79, 58, 124, 0.85);
+  background: linear-gradient(180deg, #6f54ad, #3e2d66);
   color: #f8fafc;
   border-radius: 12px;
   padding: 11px 14px;
@@ -196,7 +196,7 @@
 }
 
 .loginPrimaryBtn:hover {
-  background: linear-gradient(180deg, #111827, #00040a);
+  background: linear-gradient(180deg, #5f4696, #2f234d);
 }
 
 .loginPrimaryBtn:disabled {

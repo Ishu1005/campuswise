@@ -2,8 +2,8 @@
   display: flex;
   align-items: flex-start;
   min-height: 100vh;
-  background: linear-gradient(165deg, #d8dadf 0%, #cbcfd6 52%, #bdc2cb 100%);
-  color: #111827;
+  background: linear-gradient(165deg, #f1ebfb 0%, #e5dcf4 52%, #d8cdeb 100%);
+  color: #241a3d;
   animation: landingFadeIn 0.5s ease-out;
 }
 
@@ -14,8 +14,8 @@
 
 .landingSideNav {
   width: 264px;
-  background: linear-gradient(180deg, #c8cdd6 0%, #bcc3ce 100%);
-  color: #111827;
+  background: linear-gradient(180deg, #d9ceef 0%, #ccbde7 100%);
+  color: #241a3d;
   padding: 16px 12px;
   display: flex;
   flex-direction: column;
@@ -350,28 +350,28 @@
 }
 
 .landingBtnPrimary {
-  background: linear-gradient(135deg, #111827, #020617);
+  background: linear-gradient(135deg, #6f54ad, #3e2d66);
   color: #f9fafb;
   border: 1px solid rgba(148, 163, 184, 0.6);
   box-shadow: 0 6px 14px rgba(15, 23, 42, 0.2);
 }
 
 .landingBtnPrimary:hover {
-  background: linear-gradient(135deg, #020617, #0b1120);
+  background: linear-gradient(135deg, #5f4696, #2f234d);
   border-color: rgba(148, 163, 184, 0.8);
 }
 
 .landingBtnGhost {
-  border: 1px solid rgba(71, 85, 105, 0.42);
-  color: #111827;
-  background: linear-gradient(180deg, #cfd6e1 0, #c0c9d6 100%);
+  border: 1px solid rgba(93, 72, 140, 0.42);
+  color: #241a3d;
+  background: linear-gradient(180deg, #e6dcf8 0, #d6c8ef 100%);
 }
 
 .landingContent {
   flex: 1;
   min-width: 0;
   padding: 26px 32px;
-  background: linear-gradient(180deg, #d9dce3 0, #ced3dc 100%);
+  background: linear-gradient(180deg, #ece4f8 0, #e2d7f3 100%);
 }
 
 .landingHeroSection {
